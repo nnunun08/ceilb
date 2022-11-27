@@ -1,0 +1,27 @@
+@import url(/asset/css/clients/shared/plugins/bootstrap.min.css);
+
+a {
+    text-decoration: none;
+}
+body {
+    overflow-x: hidden;
+}
+
+$gnbHeight : 90px;
+.headerSpace {
+    padding-top: $gnbHeight;
+}
+header {
+    width: 100vw;
+    height: $gnbHeight;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #F4F4F4;
+    padding-top: 40px;
+    .logo {
+        // margin-top: 40px;
+    }
+}
+

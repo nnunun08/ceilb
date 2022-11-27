@@ -1,0 +1,54 @@
+footer {
+  background-color: #1c1c1c;
+  padding-top: 28px;
+  padding-bottom: 16px;
+}
+footer p {
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+footer p .grey {
+  color: #ABABAB;
+}
+footer address {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1;
+}
+footer .line {
+  width: 100%;
+  height: 1px;
+  background: #929292;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+footer .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 27px;
+}
+footer .bottom .snsWrap {
+  display: flex;
+  gap: 20px;
+}
+footer .copyright {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0;
+  line-height: 1;
+}
+footer .sns {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+footer .face {
+  background: url(../../../images/common/sns_face.svg) center/cover no-repeat;
+}
+footer .insta {
+  background: url(../../../images/common/sns_insta.svg) center/cover no-repeat;
+}
+
+/*# sourceMappingURL=footer.css.map */
