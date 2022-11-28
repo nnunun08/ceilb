@@ -220,6 +220,99 @@ $mainTopPadding: 42px;
         border-radius: 7px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         margin-bottom: 84px;
+        padding-top: 10px;
+
+        // flatpickr
+        .flatpickr-months {
+            align-items: center;
+        }
+        .flatpickr-weekdays {
+            border-top: 1px solid #D8D8D8;    
+            border-bottom: 1px solid #D8D8D8;    
+        }
+        .flatpickr-months .flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg {
+            margin-top: -13px;
+        }
+        .flatpickr-months .flatpickr-prev-month:hover svg, .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: #000;
+        }
+        // .numInputWrapper {
+        //     span {
+        //         display: none;
+        //     }
+        //     &:hover {
+        //         background: transparent;
+        //     }
+        // }
+        .flatpickr-current-month {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0;
+            height: 33px;
+            input.cur-year {
+                font-size: 14px;
+                font-weight: bold;
+                text-align: right;
+                padding-right: 18px;
+            }
+            .flatpickr-monthDropdown-months {
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: -4px;
+                order: 1;
+                -webkit-appearance: none; 
+                -moz-appearance: none;
+                appearance: none;
+            }
+        }
+        
+        span.flatpickr-weekday {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+        }
+        .flatpickr-calendar {
+            width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+            background: transparent;
+        }
+        .flatpickr-days,
+        .flatpickr-rContainer {
+            width: 100%;
+        }
+        .dayContainer {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+        .flatpickr-day {
+            font-size: 14px;
+            font-weight: 300;
+            max-width: none;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            margin: 0 auto;
+            &.today {
+                background: #7EADAA;
+                border: 0;
+                color: #fff;
+            }
+        }
+        .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected.inRange, .flatpickr-day.startRange.inRange, .flatpickr-day.endRange.inRange, .flatpickr-day.selected:focus, .flatpickr-day.startRange:focus, .flatpickr-day.endRange:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.startRange.nextMonthDay, .flatpickr-day.endRange.nextMonthDay {
+            background:#FFCB13;
+            border-color: #FFCB13;
+            color: #000;
+            font-weight: 400;
+        }
+        .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover, .flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay, .flatpickr-day.notAllowed, .flatpickr-day.notAllowed.prevMonthDay, .flatpickr-day.notAllowed.nextMonthDay {
+            color: #ADADAD;
+        }
+        
     }
     .period {
         margin-top: 30px;
@@ -291,6 +384,7 @@ $mainTopPadding: 42px;
             font-size: 10px;
             font-weight: bold;
             white-space: nowrap;
+            flex: 1 0 auto;
             .location {
                 width: 11px;
                 height: 11px;
@@ -308,7 +402,31 @@ $mainTopPadding: 42px;
 }
 
 .mainList {
+    margin-top: 10px;
+    .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 220px;
+        }
+    }
+    &.on .loading {
+        display: none;
+    }
+    &.on .item {
+        opacity: 1;
+    }
+    
     .item {
+        transition: 0.5s;
+        opacity: 0;
         & + .item {
             margin-top: 20px;
         }
@@ -322,17 +440,31 @@ $mainTopPadding: 42px;
         .imgWrap {
             position: relative;
             padding-top: 50%;
-            .badge {
+            .badgeWrap {
                 position: absolute;
                 left: 10px;
                 top: 10px;
-                font-size: 10px;
+                display: flex;
+            }
+            .badge {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
                 font-weight: 400;
-                padding: 3px 12px;
+                padding: 0 9px;
+                height: 20px;
+                line-height: 20px;
                 border-radius: 2px;
                 background-color: #fff;
                 color: #333;
                 z-index: 1;
+                margin-right: 5px;
+                &.class {
+                    color: #5E5E5E;
+                    padding-left: 3px;
+                    padding-right: 5px;
+                }
             }
             .thumbImg {
                 position: absolute;
@@ -353,10 +485,10 @@ $mainTopPadding: 42px;
             justify-content: space-between;
         }
         li:nth-child(1) {
-            padding: 10px 14px 9px;
+            padding: 10px 14px 0px;
         }
         li:nth-child(2) {
-            padding: 0 14px 6px;
+            padding: 0 14px 10px;
             border-bottom: 1px solid #DADADA;
         }
         li:nth-child(3) {
@@ -365,7 +497,16 @@ $mainTopPadding: 42px;
         .price,
         .name {
             color: #1E1E1E;
+            font-size: 12px;
             font-weight: bold;
+        }
+        .name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .num {
+            color: #C1C1C1;
         }
         .num,
         .feature {
@@ -377,9 +518,18 @@ $mainTopPadding: 42px;
             }
         }
         .option {
-            span + span {
-                margin-left: 49px;
+            display: flex;
+            align-items: center;
+            span {
+                width: 16px;
+                height: 16px;
+                margin-right: 10px;
+                display: inline-block;
             }
+            .parking {background: url(../../images/main/ic_parking.svg) center/cover no-repeat;}
+            .wash {background: url(../../images/main/ic_wash.svg) center/cover no-repeat;}
+            .cook {background: url(../../images/main/ic_cook.svg) center/cover no-repeat;}
+
         }
         .class {
             display: flex;
@@ -388,7 +538,7 @@ $mainTopPadding: 42px;
                 display: block;
                 width: 16px;
                 height: 16px;
-                margin-right: 6px;
+                margin-right: 5px;
                 background: center/cover no-repeat;
                 &.hotel {background-image: url(../../images/main/ic_hotel.svg);}
                 &.villa {background-image: url(../../images/main/ic_holiday_village.svg);}

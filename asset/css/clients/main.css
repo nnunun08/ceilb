@@ -209,6 +209,87 @@ h2 {
   border-radius: 7px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   margin-bottom: 84px;
+  padding-top: 10px;
+}
+.mainDate .calendarWrap .flatpickr-months {
+  align-items: center;
+}
+.mainDate .calendarWrap .flatpickr-weekdays {
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+}
+.mainDate .calendarWrap .flatpickr-months .flatpickr-prev-month svg, .mainDate .calendarWrap .flatpickr-months .flatpickr-next-month svg {
+  margin-top: -13px;
+}
+.mainDate .calendarWrap .flatpickr-months .flatpickr-prev-month:hover svg, .mainDate .calendarWrap .flatpickr-months .flatpickr-next-month:hover svg {
+  fill: #000;
+}
+.mainDate .calendarWrap .flatpickr-current-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  height: 33px;
+}
+.mainDate .calendarWrap .flatpickr-current-month input.cur-year {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 18px;
+}
+.mainDate .calendarWrap .flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: -4px;
+  order: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.mainDate .calendarWrap span.flatpickr-weekday {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+}
+.mainDate .calendarWrap .flatpickr-calendar {
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.mainDate .calendarWrap .flatpickr-days,
+.mainDate .calendarWrap .flatpickr-rContainer {
+  width: 100%;
+}
+.mainDate .calendarWrap .dayContainer {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.mainDate .calendarWrap .flatpickr-day {
+  font-size: 14px;
+  font-weight: 300;
+  max-width: none;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  margin: 0 auto;
+}
+.mainDate .calendarWrap .flatpickr-day.today {
+  background: #7EADAA;
+  border: 0;
+  color: #fff;
+}
+.mainDate .calendarWrap .flatpickr-day.selected, .mainDate .calendarWrap .flatpickr-day.startRange, .mainDate .calendarWrap .flatpickr-day.endRange, .mainDate .calendarWrap .flatpickr-day.selected.inRange, .mainDate .calendarWrap .flatpickr-day.startRange.inRange, .mainDate .calendarWrap .flatpickr-day.endRange.inRange, .mainDate .calendarWrap .flatpickr-day.selected:focus, .mainDate .calendarWrap .flatpickr-day.startRange:focus, .mainDate .calendarWrap .flatpickr-day.endRange:focus, .mainDate .calendarWrap .flatpickr-day.selected:hover, .mainDate .calendarWrap .flatpickr-day.startRange:hover, .mainDate .calendarWrap .flatpickr-day.endRange:hover, .mainDate .calendarWrap .flatpickr-day.selected.prevMonthDay, .mainDate .calendarWrap .flatpickr-day.startRange.prevMonthDay, .mainDate .calendarWrap .flatpickr-day.endRange.prevMonthDay, .mainDate .calendarWrap .flatpickr-day.selected.nextMonthDay, .mainDate .calendarWrap .flatpickr-day.startRange.nextMonthDay, .mainDate .calendarWrap .flatpickr-day.endRange.nextMonthDay {
+  background: #FFCB13;
+  border-color: #FFCB13;
+  color: #000;
+  font-weight: 400;
+}
+.mainDate .calendarWrap .flatpickr-day.flatpickr-disabled, .mainDate .calendarWrap .flatpickr-day.flatpickr-disabled:hover, .mainDate .calendarWrap .flatpickr-day.prevMonthDay, .mainDate .calendarWrap .flatpickr-day.nextMonthDay, .mainDate .calendarWrap .flatpickr-day.notAllowed, .mainDate .calendarWrap .flatpickr-day.notAllowed.prevMonthDay, .mainDate .calendarWrap .flatpickr-day.notAllowed.nextMonthDay {
+  color: #ADADAD;
 }
 .mainDate .period {
   margin-top: 30px;
@@ -284,6 +365,7 @@ h2 {
   font-size: 10px;
   font-weight: bold;
   white-space: nowrap;
+  flex: 1 0 auto;
 }
 .searchValue .inner .item .location {
   width: 11px;
@@ -298,7 +380,32 @@ h2 {
   margin: 0 6px;
 }
 
+.mainList {
+  margin-top: 10px;
+}
+.mainList .loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainList .loading img {
+  width: 220px;
+}
+.mainList.on .loading {
+  display: none;
+}
+.mainList.on .item {
+  opacity: 1;
+}
 .mainList .item {
+  transition: 0.5s;
+  opacity: 0;
   display: block;
   border-radius: 6px;
   overflow: hidden;
@@ -314,17 +421,31 @@ h2 {
   position: relative;
   padding-top: 50%;
 }
-.mainList .item .imgWrap .badge {
+.mainList .item .imgWrap .badgeWrap {
   position: absolute;
   left: 10px;
   top: 10px;
-  font-size: 10px;
+  display: flex;
+}
+.mainList .item .imgWrap .badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
   font-weight: 400;
-  padding: 3px 12px;
+  padding: 0 9px;
+  height: 20px;
+  line-height: 20px;
   border-radius: 2px;
   background-color: #fff;
   color: #333;
   z-index: 1;
+  margin-right: 5px;
+}
+.mainList .item .imgWrap .badge.class {
+  color: #5E5E5E;
+  padding-left: 3px;
+  padding-right: 5px;
 }
 .mainList .item .imgWrap .thumbImg {
   position: absolute;
@@ -344,10 +465,10 @@ h2 {
   justify-content: space-between;
 }
 .mainList .item li:nth-child(1) {
-  padding: 10px 14px 9px;
+  padding: 10px 14px 0px;
 }
 .mainList .item li:nth-child(2) {
-  padding: 0 14px 6px;
+  padding: 0 14px 10px;
   border-bottom: 1px solid #DADADA;
 }
 .mainList .item li:nth-child(3) {
@@ -356,7 +477,16 @@ h2 {
 .mainList .item .price,
 .mainList .item .name {
   color: #1E1E1E;
+  font-size: 12px;
   font-weight: bold;
+}
+.mainList .item .name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mainList .item .num {
+  color: #C1C1C1;
 }
 .mainList .item .num,
 .mainList .item .feature {
@@ -365,8 +495,24 @@ h2 {
 .mainList .item .feature span + span {
   margin-left: 18px;
 }
-.mainList .item .option span + span {
-  margin-left: 49px;
+.mainList .item .option {
+  display: flex;
+  align-items: center;
+}
+.mainList .item .option span {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.mainList .item .option .parking {
+  background: url(../../images/main/ic_parking.svg) center/cover no-repeat;
+}
+.mainList .item .option .wash {
+  background: url(../../images/main/ic_wash.svg) center/cover no-repeat;
+}
+.mainList .item .option .cook {
+  background: url(../../images/main/ic_cook.svg) center/cover no-repeat;
 }
 .mainList .item .class {
   display: flex;
@@ -376,7 +522,7 @@ h2 {
   display: block;
   width: 16px;
   height: 16px;
-  margin-right: 6px;
+  margin-right: 5px;
   background: center/cover no-repeat;
 }
 .mainList .item .class i.hotel {

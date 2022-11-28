@@ -11,12 +11,15 @@
     <meta property="og:url" content="https://celib.kr">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>celib life &amp; stay, 셀립 라이프 앤 스테이</title>
-    
-	<!-- css -->
+
+    <!-- flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- css -->
     <link rel="stylesheet" media="all" href="./asset/css/clients/main.css">
     <link rel="stylesheet" media="all" href="./asset/css/clients/main.css">
-    <link rel="stylesheet" media="all" href="./asset/css/clients/shared/plugins/slick/slick.css"/>
-    <link rel="stylesheet" media="all" href="./asset/css/clients/shared/plugins/slick/slick-theme.css"/>
+    <link rel="stylesheet" media="all" href="./asset/css/clients/shared/plugins/slick/slick.css" />
+    <link rel="stylesheet" media="all" href="./asset/css/clients/shared/plugins/slick/slick-theme.css" />
 
     <!--favicon start!!-->
     <link rel="icon" href="./asset/images/main/cropped-favico-2-32x32.png" sizes="32x32">
@@ -39,16 +42,24 @@
     <!-- slick end -->
 
     <!-- bootstrap start -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+    </script>
     <!-- bootstrap end -->
-    
+
     <!-- 사이트 구글 번역 -->
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+    <!-- flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
-    <div data-include-path="header.html"></div> 
+    <div data-include-path="header.html"></div>
 
     <section class="mainDate">
         <div class="inner">
@@ -56,7 +67,14 @@
                 이사 예정 일자는 언제인가요?
             </h2>
             <div class="calendarWrap">
-
+                <div class="cal"></div>
+                <script>
+                    $(".cal").flatpickr({
+                        inline:true,
+                        local: 'ko'
+                        
+                    });
+                </script>
             </div>
             <h2>거주 희망 기간은 어떻게 되나요?</h2>
             <div class="period">
@@ -89,8 +107,8 @@
 
 
 
-    <div data-include-path="footer.html"></div> 
-    
-</body></html>
+    <div data-include-path="footer.html"></div>
+</body>
 
+</html>
 
