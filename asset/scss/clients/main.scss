@@ -402,6 +402,16 @@ $mainTopPadding: 42px;
 }
 
 .mainList {
+    & + footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+    &.on + footer {
+        position: static;
+    }
     margin-top: 10px;
     .loading {
         position: fixed;
@@ -415,6 +425,7 @@ $mainTopPadding: 42px;
         align-items: center;
         img {
             width: 220px;
+            margin-top: -140px;
         }
     }
     &.on .loading {
@@ -551,4 +562,8 @@ $mainTopPadding: 42px;
             }
         } 
     }
+}
+
+body.noneScroll {
+    overflow-y: hidden;
 }

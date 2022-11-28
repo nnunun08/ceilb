@@ -383,6 +383,16 @@ h2 {
 .mainList {
   margin-top: 10px;
 }
+.mainList + footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.mainList.on + footer {
+  position: static;
+}
 .mainList .loading {
   position: fixed;
   top: 0;
@@ -396,6 +406,7 @@ h2 {
 }
 .mainList .loading img {
   width: 220px;
+  margin-top: -140px;
 }
 .mainList.on .loading {
   display: none;
@@ -548,6 +559,10 @@ h2 {
 }
 .mainList .item .class i.corp {
   background-image: url(../../images/main/ic_corporate_fare.svg);
+}
+
+body.noneScroll {
+  overflow-y: hidden;
 }
 
 /*# sourceMappingURL=main.css.map */

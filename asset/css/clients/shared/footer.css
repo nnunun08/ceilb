@@ -2,6 +2,7 @@ footer {
   background-color: #1c1c1c;
   padding-top: 28px;
   padding-bottom: 16px;
+  z-index: 10;
 }
 footer p {
   color: #fff;
